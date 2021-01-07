@@ -1,0 +1,103 @@
+<!-- Sun-27/12 03:12:23  -->
+<div class="flex-container">
+    <div class="cuadro">
+
+<!-- ps EMPIEZA FORMULARIO -->
+        <form action="#" [formGroup]="formulario" (ngSubmit)="probando()">
+<!-- ac NOMBRE -->
+            <label for="inNombre">Ingrediente:</label>
+            <input type="text" class="form-control" placeholder="Ingrediente"
+            id="inNombre"
+            formControlName="nombre">
+<!-- fu ERRORES -->
+            <div class="error"
+            *ngIf=" formulario.controls.nombre.errors?.required &&
+                    formulario.controls.nombre.touched"
+            >Este campo es oblitagorio.</div>
+
+<!-- ag PRECIO -->    
+<!-- ag Mínimo 0. Se mueve de céntimo en céntimo. -->
+            <label for="inPrecio">Precio:</label>
+            <input type="number" class="form-control" min="0" step="0.01"
+            id="inPrecio"
+            formControlName="precio">
+
+<!-- fu ERRORES -->
+            <div class="error"
+            *ngIf=" formulario.controls.precio.errors?.required &&
+                    formulario.controls.precio.touched">Este campo es obligatorio.</div>
+
+<!-- bi PROVEEDOR -->
+<!-- bi Será un select cuyas options saldrán de los proveedores existentes. -->
+<!-- bi Pongo unos de prueba. -->
+            <label for="inProveedor">Proveedor:</label>
+            <select id="inProveedor" class="form-select" formControlName="proveedor">
+                <option value="" selected disabled hidden>Seleccione un proveedor.</option>
+<!-- bi Esto la podrá como valor por defecto, pero no será seleccinable. -->
+                <option value="1">Jumbo</option>
+                <option value="2">Lidl</option>
+                <option value="3">Aldi</option>
+            </select>
+
+<!-- fu ERRORES -->
+            <div class="error"
+            *ngIf=" formulario.controls.proveedor.errors?.required &&
+                    formulario.controls.proveedor.touched">Este campo es obligatorio</div>
+
+<!-- dr FECHA DE LA COMPRA -->
+            <label for="inFechaCompra">Comprado a:</label>
+            <input type="date" class="form-control"
+            id="inFechaCompra"
+            formControlName="fecha_compra">
+
+<!-- fu ERRORES -->
+            <div class="error"
+            *ngIf=" formulario.controls.fecha_compra.errors?.required &&
+                    formulario.controls.fecha_compra.touched">Este campo es obligatorio</div>
+
+<!-- el FECHA CADUCIDAD -->
+<!-- el Este campo no será obligatorio. -->
+            <label for="inFechaCaducidad">Caduca a:</label>
+            <input type="date" class="form-control"
+            id="inFechaCaducidad"
+            formControlName="fecha_caducidad">
+
+<!-- fa CANTIDAD -->
+<!-- fa Esta no será la nueva cantidad total, sino la cantidad a sumar. -->
+            <label for="inCantidad">Cantidad comprada:</label>
+            <input type="number" class="form-control" min="0"
+            id="inCantidad"
+            formControlName="cantidad">
+
+<!-- fu ERRORES -->
+            <div class="error"
+            *ngIf=" formulario.controls.cantidad.errors?.required &&
+                    formulario.controls.cantidad.touched">Este campo es obligatorio</div>
+
+
+<!-- hi UNIDAD -->
+<!-- hi Puedes contar las patatas por kilos o por número de patatas, por ejemplo. -->
+            <label for="inUnidad">Unidades:</label>
+            <input type="text" class="form-control"
+            id="inUnidad"
+            formControlName="unidad">
+
+<!-- no OBSERVACINES -->
+<!-- no Detalles del producto, la tienda o dudas que surjan. -->
+            <label for="inObservaciones">Observaciones</label>
+            <textarea id="inObservaciones" cols="30" rows="5" placeholder="Observaciones..."
+            class="form-control"
+            formControlName="observaciones"></textarea>
+
+<!-- ac BOTÓN SUBMIT -->
+            <button type="submit" class="btn btn-primary"
+            [disabled]="formulario.invalid">
+                Probar
+            </button>
+
+
+
+        </form>
+<!-- ps TERMINA FORMULARIO -->
+    </div>
+</div>

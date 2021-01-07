@@ -1,0 +1,142 @@
+//ag Unas variables
+    $text-primary:rgb(202, 7, 137) ;
+    $text-secondary: #fff;
+    $bg-primary: rgb(46, 45, 45);;
+    $bg-secondary: #000;
+    $speed-transation: 500ms;
+
+:root{  //ps No sé si el raíz ha de estar en el componente principal o en cada componente.
+    font-size: 16px;
+}
+
+
+.navbar{ //<nav>
+    // width: 5rem;                //ti Lo encajo a la izquierda.
+    // height: 100vh;              //ti Lo empotro en el navegador. 
+    position:fixed;             //ti Lo coloco en base al navegador. Ya no empuja el cuerpo.
+    background-color: $bg-primary;  
+    color: $text-primary;
+    transition: $speed-transation;
+    
+&:hover{
+    // width:16rem;
+
+    .logo{
+        background-color: $bg-secondary;    //lu Cambia el fondo.
+        .nav-link{
+            filter: grayscale(0%) opacity(1);
+        }
+        .link-text{
+            margin-left: 2rem;
+            color: $text-secondary; //lu Cambia la letra a blanco.
+        }
+        svg{
+            transform: rotate(-360deg);
+        }
+}
+
+}
+}
+
+.navbar-nav{ //<ul>
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.nav-item{ //<li>
+    width: 100%;
+}
+
+.nav-link{ // <a>
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 5rem;
+    color: $text-primary;
+    text-decoration: none;
+    filter: grayscale(80%) opacity(0.7);
+    transition: $speed-transation;
+
+    &:hover{
+        filter: grayscale(0%) opacity(1);
+        background-color: $bg-secondary;    
+        .link-text{
+            color: $text-secondary;
+        }
+    }
+
+
+    svg{//fu Esto no sé exactamente qué hace.
+        min-width: 2rem;
+        margin: 0 1.5rem;
+    }
+
+    .link-text{ // <span>
+        display:none; //ha Hacemos desaparecer el texto.
+    }
+}
+
+.nav-item:last-child{
+    margin-top:auto;    //ha Mando el último hijo abajo del todo.
+}
+
+
+.logo{
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: $text-secondary;
+    background-color: $bg-primary;
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+
+    svg{
+        transform: rotate();
+        transition: 2000ms;
+    }
+}
+
+/* Pantallas pequeñas */
+@media only screen and (max-width: 600px){
+.navbar{
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+}
+.logo{
+    display:none;
+}
+.navbar-nav{
+    flex-direction: row;
+}
+.nav-link{
+    justify-content: center;
+}
+}
+
+/* Pantallas grandes */
+@media only screen and (min-width: 600px){
+.navbar{
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.navbar:hover{
+    width: 16rem; //fu Repe.
+    .link-text{
+        display:inline;
+        transition: opacity($speed-transation);
+    }
+}
+
+
+}
+
+//ps El espacio que queda se debe al margen del class="container" en el index.
