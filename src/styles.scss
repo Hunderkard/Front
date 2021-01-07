@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+    height: 100vh;
+}
+
+// Tue-05/01 11:35:12 Intento cambiar la barra de scroll en toda la página.
+    body::-webkit-scrollbar{ //fu webkit es para chrome, no hay para mozilla.
+        width: 0.25rem;
+    }
+
+    body::-webkit-scrollbar-track{ //fu El carril por el que se mueve la barra.
+        background-color: greenyellow;
+    }
+
+
+    body::-webkit-scrollbar-thumb{  //fu La barra en sí.
+        background-color: green;
+    }
