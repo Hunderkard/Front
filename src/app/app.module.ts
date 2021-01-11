@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 // ti MIS COMPONENTES
 import { RegisterComponent } from './component/formularios/register/register.component';
 import { CabeceraComponent } from './component/layout/cabecera/cabecera.component';
+import { LoginComponent } from './component/formularios/login/login.component';
 
 // ti FORMULARIO REACTIVE.
 /* Thu-17/12 20:21:42 Decido usar los fromularios Reactive para no cargar de lógica el HTML. */
@@ -15,10 +16,7 @@ import { FormIngredienteComponent } from './component/formularios/form-ingredien
 
 // ti ÉSTOS SE HAN PUESTOS SOLOS, ME DA MIEDO BORRARLOS.
 import { environment } from '../environments/environment';
-import { SecureComponent } from './component/secure/secure.component';
 
-// ti MIS MÓDULOS.
-import { PublicModule } from './component/public/public.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +24,7 @@ import { PublicModule } from './component/public/public.module';
     RegisterComponent,
     CabeceraComponent,
     FormIngredienteComponent,
-    SecureComponent,
-
+    LoginComponent,
     
   ],
   imports: [
@@ -35,7 +32,6 @@ import { PublicModule } from './component/public/public.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    PublicModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
