@@ -4,13 +4,13 @@
     <div class="cuadro">
         
 <!-- ps EMPIEZA FORMULARIO -->
-        <form class="mb-3" [formGroup]="formulario" (ngSubmit)="comprobarUsuario()">
-
+        <form class="mb-3" [formGroup]="formulario" (ngSubmit)="dandole()">
+        
 <!-- ag EMAIL -->
 <!-- ag Tendrá un mensaje para el error por requerido y por el patrón. -->
             <label for="inEmail" class="form-label">Email:</label>
             <input  type="email" class="form-control"  placeholder="Correo electrónico" 
-                    id="inEmail"
+                    id="inEmail" name="email"
                     formControlName="email">
 <!-- fu ERRORES -->
             <div class="error" *ngIf="formulario.controls.email.errors?.required && formulario.controls.email.touched">
@@ -24,7 +24,7 @@
 <!-- bi Tendrá un mensaje para el error por requerido y por longitud mínima. -->
             <label for="inContra" class="form-label">Contraseña</label>
             <input  type="password" class="form-control"  placeholder="Contraseña" 
-                    id="inContra"
+                    id="inContra" name="password"
                     formControlName="password">
 <!-- fu ERRORES -->
             <div class="error" *ngIf="formulario.controls.password.errors?.required && formulario.controls.password.touched">
@@ -36,7 +36,7 @@
         <br>
 <!-- ac BOTÓN SUBMIT -->
             <button class="btn btn-primary" type="submit" 
-                    [disabled]="false"> Login </button>
+                    [disabled]="!this.formulario.valid"> Login </button>
 
         </form>
 <!-- ps TERMINA FORMULARIO -->

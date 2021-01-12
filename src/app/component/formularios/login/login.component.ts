@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
     email:"probando@gmail.com",
     password:"12341234"
   }
-  constructor() {
+  constructor(private http:HttpClient) {
 
     // bi El Group tiene dentro varios Control ('por defecto', validación, validación asíncrona).
     // bi También puede tener otro Group con varios Control dentro, si le metes un objeto a otro.
@@ -28,10 +29,17 @@ export class LoginComponent {
     })
    }
 
-   comprobarUsuario(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
-     console.log(this.formulario.controls);
+   dandole(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
 
-     this.formulario.setValue(this.usuarioPrueba);  // si Aquí se pasa un objeto con la misma estructura y listo.
+    return this.http.post('http://localhost:8000/login',{
+      "email" : this.formulario.controls.email.value, 
+      "password" : this.formulario.controls.password.value}).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
+     
+
+    // this.formulario.setValue(this.usuarioPrueba);  // si Aquí se pasa un objeto con la misma estructura y listo.
    }
 
  
