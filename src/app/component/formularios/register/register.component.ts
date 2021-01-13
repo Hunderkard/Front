@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { NullTemplateVisitor } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -9,9 +11,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegisterComponent {
 
   formulario:FormGroup;
-
+  public error = null;
  
-  constructor() {
+  constructor( private http:HttpClient) {
 
     this.formulario = new FormGroup({
       nombre: new FormControl('', [   Validators.required,
@@ -37,14 +39,26 @@ export class RegisterComponent {
 
     let form:any = this;
 
-    if(input.value !== form.controls.password.value) return {Diferentes:true}; /* Si hay algún retorno, es que hubo error. */
+    if(input.value !== form.controls.password.value) return {diferentes:true}; /* Si hay algún retorno, es que hubo error. */
     return null;
   }
 
    probando(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
-    console.log(this.formulario.controls);
-
+    console.log(this.formulario);
+    this.http.post('http://localhost:8000/register', {
+      "name" : this.formulario.controls.nombre.value,
+      "email" : this.formulario.controls.email.value,
+      "password" : this.formulario.controls.password.value,
+    })
+    .subscribe(
+      data => console.log(data),
+      error => this.capturoError(error)
+    )
   }
 
-
+  
+  capturoError(e){
+    console.log(e);
+    this.error = e.status;
+  }
 }

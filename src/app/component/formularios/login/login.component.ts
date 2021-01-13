@@ -15,6 +15,10 @@ export class LoginComponent {
     email:"probando@gmail.com",
     password:"12341234"
   }
+
+  // fu Errores
+  public error = null;  
+
   constructor(private http:HttpClient) {
 
     // bi El Group tiene dentro varios Control ('por defecto', validación, validación asíncrona).
@@ -29,19 +33,24 @@ export class LoginComponent {
     })
    }
 
-   dandole(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
+  onSubmit(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
 
     return this.http.post('http://localhost:8000/login',{
       "email" : this.formulario.controls.email.value, 
-      "password" : this.formulario.controls.password.value}).subscribe(
-      data => console.log(data),
-      error => console.log(error)
-    );
-     
+      "password" : this.formulario.controls.password.value})
+      .subscribe(
+          data => console.log(data),
+          error => this.capturoError(error)
+      );
+    
 
-    // this.formulario.setValue(this.usuarioPrueba);  // si Aquí se pasa un objeto con la misma estructura y listo.
-   }
+  // this.formulario.setValue(this.usuarioPrueba);  // si Aquí se pasa un objeto con la misma estructura y listo.
+  }
 
- 
+
+  capturoError(e){
+    console.log(e);
+    this.error = e.status;
+  }
 
 }

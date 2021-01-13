@@ -3,9 +3,21 @@
 <div class="flex-container">
     <div class="cuadro">
         
-<!-- ps EMPIEZA FORMULARIO -->
-        <form class="mb-3" [formGroup]="formulario" (ngSubmit)="dandole()">
+
+        <!-- fu ERRORES HTTP -->
+        <div class="errorHTTP" *ngIf="error == 401">
+            El email o la contraseña no son correctos.
+        </div>
         
+        <div class="errorHTTP" *ngIf="error == 404">
+            Un archivo no ha sido encontrado.
+        </div>
+
+        <div class="errorHTTP" *ngIf="error == 500">
+            Se te olvidó encender el XAMPP...
+        </div>
+<!-- ps EMPIEZA FORMULARIO -->
+        <form class="mb-3" [formGroup]="formulario" (ngSubmit)="onSubmit()">
 <!-- ag EMAIL -->
 <!-- ag Tendrá un mensaje para el error por requerido y por el patrón. -->
             <label for="inEmail" class="form-label">Email:</label>
