@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { NullTemplateVisitor } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DatosService } from 'src/app/service/datos.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +12,7 @@ export class RegisterComponent {
   formulario:FormGroup;
   public error = null;
  
-  constructor( private http:HttpClient) {
+  constructor( private server:DatosService) {
 
     this.formulario = new FormGroup({
       nombre: new FormControl('', [   Validators.required,
@@ -31,7 +30,8 @@ export class RegisterComponent {
     this.formulario.controls.repetida.
     setValidators([
       Validators.required,
-      this.noIguales.bind( this.formulario )])
+      this.noIguales.bind( this.formulario )
+    ])
    }
 
 
@@ -44,12 +44,8 @@ export class RegisterComponent {
   }
 
    probando(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
-    console.log(this.formulario);
-    this.http.post('http://localhost:8000/register', {
-      "name" : this.formulario.controls.nombre.value,
-      "email" : this.formulario.controls.email.value,
-      "password" : this.formulario.controls.password.value,
-    })
+    
+    this.server.register(this.formulario)
     .subscribe(
       data => console.log(data),
       error => this.capturoError(error)
