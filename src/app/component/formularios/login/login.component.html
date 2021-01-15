@@ -25,7 +25,8 @@
                     id="inEmail" name="email"
                     formControlName="email">
 <!-- fu ERRORES -->
-            <div class="error" *ngIf="formulario.controls.email.errors?.required && formulario.controls.email.touched">
+            <div class="error" *ngIf="  formulario.controls.email.errors?.required &&
+                                        formulario.controls.email.touched">
                 Este campo es obligatorio.
             </div>
             <div class="error" *ngIf="formulario.controls.email.errors?.pattern">

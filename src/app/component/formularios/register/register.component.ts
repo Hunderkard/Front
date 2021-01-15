@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+// ti SERVICIOS
 import { DatosService } from 'src/app/service/datos.service';
+import { TokenService } from 'src/app/service/token.service';
+
 
 @Component({
   selector: 'app-register',
@@ -12,7 +17,9 @@ export class RegisterComponent {
   formulario:FormGroup;
   public error = null;
  
-  constructor( private server:DatosService) {
+  constructor( private server:DatosService,
+                private token:TokenService,
+                private router:Router) {
 
     this.formulario = new FormGroup({
       nombre: new FormControl('', [   Validators.required,
@@ -47,13 +54,17 @@ export class RegisterComponent {
     
     this.server.register(this.formulario)
     .subscribe(
-      data => console.log(data),
-      error => this.capturoError(error)
+      data => this.manejoRespuesta(data),
+      error => this.manejoError(error)
     )
   }
 
+  manejoRespuesta(res){
+    this.token.set(res.token);
+    this.router.navigateByUrl('/perfil'); 
+  }
   
-  capturoError(e){
+  manejoError(e: { status: any; }){
     console.log(e);
     this.error = e.status;
   }
