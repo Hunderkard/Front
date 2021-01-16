@@ -22,4 +22,19 @@ export class DatosService {
       "password" : formulario.controls.password.value,
     });
   }
+
+  sendEmailPassReset(formulario){
+    return this.http.post(`${this.BackUrl}/sendPasswordReset`, {
+      "email": formulario.controls.email.value
+    })
+  }
+
+  
+  changePass(formulario){
+    return this.http.post(`${this.BackUrl}/changePasswordReset`, {
+      "email": formulario.controls.email.value,
+      "password": formulario.controls.password.value,
+      "token": formulario.controls.resetToken.value,
+    })
+  }
 }

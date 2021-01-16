@@ -9,7 +9,7 @@
     {{error}}
 </div>
 <!-- ps EMPIEZA FORMULARIO -->
-            <form class="mb-3" [formGroup]="formulario" (ngSubmit)="probando()">
+            <form class="mb-3" [formGroup]="formulario" (ngSubmit)="onSubmit()">
 <!-- ac NOMBRE USUARIO -->
 <!-- ac Mínimo 4 caracteres. -->
                 <label for="inUser" class="form-label">Nombre de usuario:</label>
@@ -84,11 +84,11 @@
 
 <!-- ac BOTÓN SUBMIT -->
                 <button class="btn btn-primary" type="submit" 
-                [disabled]="false"> Login </button>
+                [disabled]="!this.formulario.valid"> Login </button>
 
             </form>
 <!-- ps TERMINA FORMULARIO -->
-Valido: {{formulario.status}}
+<!-- Valido: {{formulario.status}} -->
 
         </div>
 </div>

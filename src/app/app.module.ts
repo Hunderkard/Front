@@ -18,6 +18,8 @@ import { FormIngredienteComponent } from './component/formularios/form-ingredien
 
 // ti ÉSTOS SE HAN PUESTOS SOLOS, ME DA MIEDO BORRARLOS.
 import { environment } from '../environments/environment';
+import { RequestResetComponent } from './component/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './component/password/response-reset/response-reset.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { environment } from '../environments/environment';
     FormIngredienteComponent,
     LoginComponent,
     PerfilComponent,
+    RequestResetComponent,
+    ResponseResetComponent,
     
   ],
   imports: [

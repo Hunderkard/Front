@@ -50,7 +50,7 @@ export class RegisterComponent {
     return null;
   }
 
-   probando(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
+   onSubmit(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
     
     this.server.register(this.formulario)
     .subscribe(

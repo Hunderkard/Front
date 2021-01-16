@@ -24,10 +24,10 @@ export class LoginComponent {
   // fu Errores
   public error = null;  
 
-  constructor(  private server:DatosService,
-                private token:TokenService,
-                private auth:AuthService,
-                private router: Router) {
+  constructor(private server:DatosService, 
+              private token:TokenService, 
+              private auth:AuthService, 
+              private router: Router) {
 
     // bi El Group tiene dentro varios Control ('por defecto', validación, validación asíncrona).
     // bi También puede tener otro Group con varios Control dentro, si le metes un objeto a otro.
@@ -41,7 +41,7 @@ export class LoginComponent {
     })
    }
 
-  onSubmit(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
+  onSubmit(){
 
     return this.server.login(this.formulario)
       .subscribe(
@@ -60,7 +60,6 @@ export class LoginComponent {
   }
 
   manejoError(e){
-    console.log(e);
     this.error = e.status;
   }
 

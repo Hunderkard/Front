@@ -1,0 +1,29 @@
+.error{
+    color: red;
+    background-color: green;
+    font-size: 0.8em;
+    text-align: center;
+  }
+  
+  .errorHTTP{
+    color: rgb(100, 37, 97);
+    background-color: rgb(107, 231, 128);
+    font-size: 1.6em;
+    text-align: center;
+  }
+  
+  
+  .flex-container {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .cuadro { 
+      background-color: rgba($color: silver, $alpha: 0.8);
+      padding: 1rem;
+      border-radius: 25px;
+      }
+    
+    

@@ -10,23 +10,23 @@ import { PerfilComponent } from './component/perfil/perfil.component';
 //ti SERVICIO
 import { PrelogService } from './service/CanActive/prelog.service';
 import { PostlogService } from './service/CanActive/postlog.service';
+import { RequestResetComponent } from './component/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './component/password/response-reset/response-reset.component';
 
 // ha PARA SEPARAR LOS COMPOENTES PUBLICOS DE LOS PRIVADOS
 const routes: Routes = [
-  
-  { path:"login", component:LoginComponent,
-    canActivate: [PrelogService],
-  },
-  { path:"register", component:RegisterComponent,
-    canActivate: [PrelogService],
-  },
-  { path:"perfil", component:PerfilComponent,
-    canActivate: [PostlogService],
-  },
-  { path:"ingrediente/create", component:FormIngredienteComponent,
-    canActivate: [PostlogService],
-  }
-];
+  {path:"", canActivate:[PrelogService], children:[
+    { path:"login", component:LoginComponent},
+    { path:"register", component:RegisterComponent},
+    { path:"req-password-reset", component: RequestResetComponent},
+    { path:"res-password-reset", component: ResponseResetComponent},
+  ]},
+
+  {path:"", canActivate:[PostlogService], children:[
+    { path:"perfil", component:PerfilComponent},
+    { path:"ingrediente/create", component:FormIngredienteComponent}  
+
+  ]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
