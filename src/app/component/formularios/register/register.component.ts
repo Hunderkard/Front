@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 // ti SERVICIOS
 import { DatosService } from 'src/app/service/datos.service';
-import { TokenService } from 'src/app/service/token.service';
-
+// import { TokenService } from 'src/app/service/token.service';
+// import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +18,8 @@ export class RegisterComponent {
   public error = null;
  
   constructor( private server:DatosService,
-                private token:TokenService,
+                // private token:TokenService,
+                // private auth:AuthService,
                 private router:Router) {
 
     this.formulario = new FormGroup({
@@ -28,19 +29,16 @@ export class RegisterComponent {
                                       Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       password: new FormControl('', [ Validators.required,
                                       Validators.minLength(6)]),
-      repetida: new FormControl() // ti Abajo los validators.
+      repetida: new FormControl()
 
     })
 
-    // ti Aquí los validators.
-    // fu No funciona .bind() arriba.
     this.formulario.controls.repetida.
     setValidators([
       Validators.required,
       this.noIguales.bind( this.formulario )
     ])
    }
-
 
    noIguales(input:FormControl):{[s:string]:boolean}{
 
@@ -50,21 +48,24 @@ export class RegisterComponent {
     return null;
   }
 
-   onSubmit(){    // fu Por ahora sólo devuelve el objeto formulario, para hacer pruebas.
-    
-    this.server.register(this.formulario)
-    .subscribe(
-      data => this.manejoRespuesta(data),
-      error => this.manejoError(error)
-    )
+   onSubmit(){ 
+    console.log('Subiendo el formulario.')
+    return this.server.register(this.formulario)
+      .subscribe(
+          data => this.manejoRespuesta(data),
+          error => this.manejoError(error),
+      );
   }
 
-  manejoRespuesta(res){
-    this.token.set(res.token);
-    this.router.navigateByUrl('/perfil'); 
+   manejoRespuesta(res){
+    console.log("Entró bien. Manejando respuesta.");
+    // this.token.set(res.token);
+    // this.auth.cambiaStatusAuth(true);
+    this.router.navigateByUrl('/login');
   }
   
-  manejoError(e: { status: any; }){
+  manejoError(e){
+    console.log("Entró mal");
     console.log(e);
     this.error = e.status;
   }

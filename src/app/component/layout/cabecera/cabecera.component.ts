@@ -22,7 +22,10 @@ export class CabeceraComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.authStatus
-    .subscribe(data => this.logueado = data)
+    .subscribe(data => {
+      this.logueado = data;
+      console.log("Desde la cabecera creo que el usuario está " + data);
+    })
   }
 
   logout(e:MouseEvent){

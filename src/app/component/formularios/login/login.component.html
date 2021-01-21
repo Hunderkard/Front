@@ -4,58 +4,58 @@
     <div class="cuadro">
         
 
-        <!-- fu ERRORES HTTP -->
-        <div class="errorHTTP" *ngIf="error == 401">
-            El email o la contraseña no son correctos.
-        </div>
-        
-        <div class="errorHTTP" *ngIf="error == 404">
-            Un archivo no ha sido encontrado.
-        </div>
+<!-- fu ERRORES HTTP -->
+<div class="errorHTTP" *ngIf="error == 401">
+    El email o la contraseña no son correctos.
+</div>
 
-        <div class="errorHTTP" *ngIf="error == 500">
-            Se te olvidó encender el XAMPP...
-        </div>
+<div class="errorHTTP" *ngIf="error == 404">
+    Un archivo no ha sido encontrado.
+</div>
+
+<div class="errorHTTP" *ngIf="error == 500">
+    Se te olvidó encender el XAMPP...
+</div>
 <!-- ps EMPIEZA FORMULARIO -->
-        <form class="mb-3" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <form class="mb-3" [formGroup]="formulario" (ngSubmit)="onSubmit()">
 <!-- ag EMAIL -->
 <!-- ag Tendrá un mensaje para el error por requerido y por el patrón. -->
-            <label for="inEmail" class="form-label">Email:</label>
-            <input  type="email" class="form-control"  placeholder="Correo electrónico" 
-                    id="inEmail" name="email"
-                    formControlName="email">
+        <label for="inEmail" class="form-label">Email:</label>
+        <input  type="email" class="form-control"  placeholder="Correo electrónico" 
+                id="inEmail" name="email"
+                formControlName="email">
 <!-- fu ERRORES -->
-            <div class="error" *ngIf="  formulario.controls.email.errors?.required &&
-                                        formulario.controls.email.touched">
-                Este campo es obligatorio.
-            </div>
-            <div class="error" *ngIf="formulario.controls.email.errors?.pattern">
-                Esta dirección no es válida.
-            </div>
-            
+        <div class="error" *ngIf="  formulario.controls.email.errors?.required &&
+                                    formulario.controls.email.touched">
+            Este campo es obligatorio.
+        </div>
+        <div class="error" *ngIf="formulario.controls.email.errors?.pattern">
+            Esta dirección no es válida.
+        </div>
+        
 <!-- bi CONTRASEÑA -->
 <!-- bi Tendrá un mensaje para el error por requerido y por longitud mínima. -->
-            <label for="inContra" class="form-label">Contraseña</label>
-            <input  type="password" class="form-control"  placeholder="Contraseña" 
-                    id="inContra" name="password"
-                    formControlName="password">
+        <label for="inContra" class="form-label">Contraseña</label>
+        <input  type="password" class="form-control"  placeholder="Contraseña" 
+                id="inContra" name="password"
+                formControlName="password">
 <!-- fu ERRORES -->
-            <div class="error" *ngIf="formulario.controls.password.errors?.required && formulario.controls.password.touched">
-                Este campo es obligatorio.
-            </div>
-            <div class="error" *ngIf="formulario.controls.password.errors?.minlength">
-                La longitud mínima es de {{formulario.controls.password.errors.minlength.requiredLength}}.
-            </div>
-            <br>
+        <div class="error" *ngIf="formulario.controls.password.errors?.required && formulario.controls.password.touched">
+            Este campo es obligatorio.
+        </div>
+        <div class="error" *ngIf="formulario.controls.password.errors?.minlength">
+            La longitud mínima es de {{formulario.controls.password.errors.minlength.requiredLength}}.
+        </div>
+        <br>
 
 <!-- ac BOTÓN SUBMIT -->
-            <button class="btn btn-primary" type="submit" 
-                    [disabled]="!this.formulario.valid"> Login </button>
+        <button class="btn btn-primary" type="submit" 
+                [disabled]="!this.formulario.valid"> Login </button>
 <br>
-                    <small>
-                        <a routerLink="/req-password-reset">Olvidé la contraseña</a>
-                    </small>
-        </form>
+                <small>
+                    <a routerLink="/req-password-reset">Olvidé la contraseña</a>
+                </small>
+    </form>
 <!-- ps TERMINA FORMULARIO -->
 
         <!-- Valido: {{formulario.status}} -->

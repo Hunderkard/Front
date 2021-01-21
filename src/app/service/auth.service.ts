@@ -11,7 +11,12 @@ export class AuthService {
   authStatus = this.logueado.asObservable();
 
   cambiaStatusAuth(value: boolean){
+    console.log("Cambiando el status de " + this.logueado.getValue() + " a " +
+    value);
+   this.authStatus.subscribe(data => console.warn("antes:" + data));
     this.logueado.next(value);
+  this.authStatus.subscribe(data => console.warn("despues:" + data));
+    console.error("logueado:" + this.logueado.getValue());
   }
 
   constructor( private Token: TokenService) { }
