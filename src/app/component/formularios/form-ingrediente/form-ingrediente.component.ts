@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class FormIngredienteComponent {
 /* Sun-27/12 03:11:57 Para poner los nuevos ingredientes. */
   formulario:FormGroup;
-
+  imgUrl:string = null;
   
 
   constructor() {
@@ -22,13 +22,29 @@ export class FormIngredienteComponent {
       cantidad: new FormControl('', [  Validators.required]),
       unidad: new FormControl('', []),
       observaciones: new FormControl('', []),
+      imagen: new FormControl('', []),
       
     })
    }
 
-   probando(){
+   onSubmit(){
      console.log(this.formulario);
    }
 
+   onChange(event){
+    let reader = new FileReader();
+ 
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+    
+      reader.onload = () => {
+        this.formulario.patchValue({
+          imagen: reader.result
+        });
+        this.imgUrl = reader.result as string;
+      };
+    }
+   }
 
 }
