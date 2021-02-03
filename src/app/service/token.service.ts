@@ -25,6 +25,24 @@ export class TokenService {
     localStorage.removeItem('token');
   }
 
+  level(){
+    const token = this.get();
+    console.log("Accediendo al nivel");
+    if(token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+
+      if(payload){ 
+        console.log("Sí, tiene algún nivel.")
+        console.log(payload.level);
+        
+        console.log("El nivel es " + payload.level);
+        return (payload .level);
+      }
+    }
+    console.log("No, no tiene el token.");
+    return 1;
+  }
+
   logueado(){
     const token = this.get();
     console.log("Comprobando si está tiene el token.")

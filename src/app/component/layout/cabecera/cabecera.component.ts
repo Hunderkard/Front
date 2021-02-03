@@ -13,6 +13,7 @@ import { TokenService } from 'src/app/service/token.service';
 export class CabeceraComponent implements OnInit {
 
   public logueado : boolean;
+  public level: number;
 
   constructor(
     private auth: AuthService,
@@ -26,11 +27,17 @@ export class CabeceraComponent implements OnInit {
       this.logueado = data;
       console.log("Desde la cabecera creo que el usuario está " + data);
     })
+    this.auth.authLevel
+    .subscribe(data => {
+      this.level = data;
+      console.log("Desde la cabecera le veo un nivel " + data);
+    })
   }
 
   logout(e:MouseEvent){
     e.preventDefault();
     this.auth.cambiaStatusAuth(false);
+    this.auth.cambiaLevelAuth(1);
     this.router.navigateByUrl('/login');
     this.token.remove();
   }

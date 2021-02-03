@@ -52,8 +52,10 @@ export class LoginComponent {
 
   manejoRespuesta(res){
     console.log("Entró bien. Manejando respuesta.");
+    console.log(res);
     this.token.set(res.token);
     this.auth.cambiaStatusAuth(true);
+    this.auth.cambiaLevelAuth();
     this.router.navigateByUrl('/perfil');
   }
 
