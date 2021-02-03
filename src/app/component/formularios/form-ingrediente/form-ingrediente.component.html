@@ -4,8 +4,8 @@
 
 <!-- ps EMPIEZA FORMULARIO -->
 <form action="#" [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <!-- FILA 1 -->
     <div class="row">
+
 <!-- ac NOMBRE -->
         <div class="col-12">
             <label for="inNombre">Ingrediente:</label>
@@ -22,7 +22,8 @@
         <div class="col-6">
 
             <label for="inProveedor">Proveedor:</label>
-            <select class="form-select" formControlName="proveedor" id="inProveedor">
+            <select class="form-select" 
+            formControlName="proveedor" id="inProveedor">
                 <option value="" selected disabled hidden>Seleccione un proveedor.</option>
 <!-- bi Esto la pondrá como valor por defecto, pero no será seleccinable. -->
                 <option value="1">Jumbo</option>
@@ -42,8 +43,7 @@
         <div class="col-6">
             <label for="inPrecio">Precio:</label>
             <input type="number" class="form-control" min="0" step="0.01"
-            id="inPrecio"
-            formControlName="precio">
+            formControlName="precio" id="inPrecio">
 
         <!-- fu ERRORES -->
             <div class="error"
@@ -52,12 +52,12 @@
                     Este campo es obligatorio.
             </div>
         </div>
+
 <!-- dr FECHA DE LA COMPRA -->
         <div class="col-6">
             <label for="inFechaCompra">Comprado a:</label>
             <input type="date" class="form-control"
-            id="inFechaCompra"
-            formControlName="fecha_compra">
+            formControlName="fecha_compra" id="inFechaCompra">
 
 <!-- fu ERRORES -->
             <div class="error"
@@ -69,12 +69,11 @@
         </div>
 
 <!-- el FECHA CADUCIDAD -->
-<!-- el Este campo no será obligatorio. -->
         <div class="col-6">
                 <label for="inFechaCaducidad">Caduca a:</label>
                 <input type="date" class="form-control"
                 id="inFechaCaducidad"
-                formControlName="fecha_caducidad">
+                formControlName="fecha_caducidad" >
           
         </div>
 
@@ -92,6 +91,7 @@
                 Este campo es obligatorio
             </div>
         </div>
+
 <!-- hi UNIDAD -->
         <div class="col-6">
             <label for="inUnidad">Unidades:</label>
@@ -109,6 +109,7 @@
         formControlName="observaciones">
     </textarea>
 
+<!-- pl IMAGEN -->
 <div class="row">
     <div class="col">
 <!-- pl IMAGEN -->
@@ -121,13 +122,13 @@
       </div>
 </div>
 <br>
+
+
 <!-- ac BOTÓN SUBMIT -->
     <button type="submit" class="btn btn-primary"
     [disabled]="formulario.invalid">
         Probar
     </button>
-
-
 
 </form>
 <!-- ps TERMINA FORMULARIO -->

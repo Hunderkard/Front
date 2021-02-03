@@ -12,6 +12,7 @@ import { PrelogService } from './service/CanActive/prelog.service';
 import { PostlogService } from './service/CanActive/postlog.service';
 import { RequestResetComponent } from './component/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './component/password/response-reset/response-reset.component';
+import { AdminlogService } from './service/CanActive/adminlog.service';
 
 // ha PARA SEPARAR LOS COMPOENTES PUBLICOS DE LOS PRIVADOS
 const routes: Routes = [
@@ -24,7 +25,10 @@ const routes: Routes = [
 
   {path:"", canActivate:[PostlogService], children:[
     { path:"perfil", component:PerfilComponent},
-    { path:"ingrediente/create", component:FormIngredienteComponent}  
+
+    { path:"", canActivate:[AdminlogService], children:[
+      { path:"ingrediente/create", component:FormIngredienteComponent}
+    ]}
 
   ]}];
 

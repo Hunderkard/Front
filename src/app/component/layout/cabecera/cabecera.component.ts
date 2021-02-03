@@ -14,6 +14,7 @@ export class CabeceraComponent implements OnInit {
 
   public logueado : boolean;
   public level: number;
+  public nombre: string;
 
   constructor(
     private auth: AuthService,
@@ -25,12 +26,12 @@ export class CabeceraComponent implements OnInit {
     this.auth.authStatus
     .subscribe(data => {
       this.logueado = data;
-      console.log("Desde la cabecera creo que el usuario está " + data);
+      // console.log("Desde la cabecera creo que el usuario está " + data);
     })
     this.auth.authLevel
     .subscribe(data => {
       this.level = data;
-      console.log("Desde la cabecera le veo un nivel " + data);
+      // console.log("Desde la cabecera le veo un nivel " + data);
     })
   }
 

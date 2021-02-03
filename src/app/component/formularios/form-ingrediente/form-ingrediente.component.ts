@@ -31,6 +31,7 @@ export class FormIngredienteComponent {
      console.log(this.formulario);
    }
 
+   
    onChange(event){
     let reader = new FileReader();
  

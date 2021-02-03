@@ -10,6 +10,10 @@ import { CabeceraComponent } from './component/layout/cabecera/cabecera.componen
 import { RegisterComponent } from './component/formularios/register/register.component';
 import { LoginComponent } from './component/formularios/login/login.component';
 import { PerfilComponent } from './component/perfil/perfil.component';
+import { FormPlatoComponent } from './component/formularios/form-plato/form-plato.component';
+import { FormProveedorComponent } from './component/formularios/form-proveedor/form-proveedor.component';
+import { RequestResetComponent } from './component/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './component/password/response-reset/response-reset.component';
 
 // ti FORMULARIO REACTIVE.
 /* Thu-17/12 20:21:42 Decido usar los fromularios Reactive para no cargar de lógica el HTML. */
@@ -18,8 +22,6 @@ import { FormIngredienteComponent } from './component/formularios/form-ingredien
 
 // ti ÉSTOS SE HAN PUESTOS SOLOS, ME DA MIEDO BORRARLOS.
 import { environment } from '../environments/environment';
-import { RequestResetComponent } from './component/password/request-reset/request-reset.component';
-import { ResponseResetComponent } from './component/password/response-reset/response-reset.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { ResponseResetComponent } from './component/password/response-reset/resp
     PerfilComponent,
     RequestResetComponent,
     ResponseResetComponent,
+    FormPlatoComponent,
+    FormProveedorComponent,
     
   ],
   imports: [
