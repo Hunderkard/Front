@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './component/init/app.component';
 
 // ti MIS COMPONENTES
 import { CabeceraComponent } from './component/layout/cabecera/cabecera.component';
@@ -12,8 +12,8 @@ import { LoginComponent } from './component/formularios/login/login.component';
 import { PerfilComponent } from './component/perfil/perfil.component';
 import { FormPlatoComponent } from './component/formularios/form-plato/form-plato.component';
 import { FormProveedorComponent } from './component/formularios/form-proveedor/form-proveedor.component';
-import { RequestResetComponent } from './component/password/request-reset/request-reset.component';
-import { ResponseResetComponent } from './component/password/response-reset/response-reset.component';
+import { RequestResetComponent } from './component/formularios/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './component/formularios/password/response-reset/response-reset.component';
 
 // ti FORMULARIO REACTIVE.
 /* Thu-17/12 20:21:42 Decido usar los fromularios Reactive para no cargar de lógica el HTML. */

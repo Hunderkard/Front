@@ -22,6 +22,7 @@ export class TokenService {
     localStorage.removeItem('token');
   }
 
+  // ps Devuelve el nivel guardado en el payload.
   level(){
     const token = this.get();
     // console.log("Accediendo al nivel");
@@ -39,6 +40,7 @@ export class TokenService {
     return 1;
   }
 
+  //ps Comprueba si el iss del payload proviene del login o del register.
   logueado(){
     const token = this.get();
     // console.log("Comprobando si está tiene el token.")
@@ -53,7 +55,9 @@ export class TokenService {
         // console.log("Sí, tiene el token.")
         return  Object.values(this.iss)     // ps Array de los valores del objeto.
                 .indexOf(payload.iss)       // ps Busca el que tienes. 0 ó 1 en este caso.
-                > -1 ? true : false;        // ps Si lo encuentra o no.
+                > -1 ?  // el La posición es 0 o superior.
+                true :  // pl Sí, así que estás bien logueado.
+                false;  // fu No, no estás bien logueado.
       }
     }
     // console.log("No, no tiene el token.");

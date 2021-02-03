@@ -5,14 +5,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DatosService {
+// ps Aquí realizo los POST para retornar observables.
+// ps Los otros componentes sólo harán el .subscribe.
 
   BackUrl = 'http://localhost:8000';
   constructor(private http:HttpClient) { }
 
   login(formulario){
-    return this.http.post(`${this.BackUrl}/login`,{
+    return this.http.post(`${this.BackUrl}/login`, {
       "email" : formulario.controls.email.value, 
-      "password" : formulario.controls.password.value});
+      "password" : formulario.controls.password.value
+    });
   }
 
   register(formulario){
@@ -26,15 +29,14 @@ export class DatosService {
   sendEmailPassReset(formulario){
     return this.http.post(`${this.BackUrl}/sendPasswordReset`, {
       "email": formulario.controls.email.value
-    })
+    });
   }
 
-  
   changePass(formulario){
     return this.http.post(`${this.BackUrl}/changePasswordReset`, {
       "email": formulario.controls.email.value,
       "password": formulario.controls.password.value,
       "token": formulario.controls.resetToken.value,
-    })
+    });
   }
 }

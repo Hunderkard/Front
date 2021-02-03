@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// ti COMPONENTES
+// ti COMPONENTES- Para direccionar la ruta.
 import { LoginComponent } from './component/formularios/login/login.component';
 import { RegisterComponent } from './component/formularios/register/register.component';
 import { FormIngredienteComponent } from './component/formularios/form-ingrediente/form-ingrediente.component';
 import { PerfilComponent } from './component/perfil/perfil.component';
+import { RequestResetComponent } from './component/formularios/password/request-reset/request-reset.component';
+import { ResponseResetComponent } from './component/formularios/password/response-reset/response-reset.component';
 
-//ti SERVICIO
+//ti SERVICIOS- Para comprobar los permisos.
 import { PrelogService } from './service/CanActive/prelog.service';
 import { PostlogService } from './service/CanActive/postlog.service';
-import { RequestResetComponent } from './component/password/request-reset/request-reset.component';
-import { ResponseResetComponent } from './component/password/response-reset/response-reset.component';
 import { AdminlogService } from './service/CanActive/adminlog.service';
 
 // ha PARA SEPARAR LOS COMPOENTES PUBLICOS DE LOS PRIVADOS
@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:"", canActivate:[PostlogService], children:[
     { path:"perfil", component:PerfilComponent},
 
-    { path:"", canActivate:[AdminlogService], children:[
+    { path:"admin", canActivate:[AdminlogService], children:[
       { path:"ingrediente/create", component:FormIngredienteComponent}
     ]}
 
