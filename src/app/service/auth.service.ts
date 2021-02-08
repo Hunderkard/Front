@@ -15,7 +15,7 @@ export class AuthService {
  88ood8  YbodP   YboodP `YbodP' 888888 dP""""Yb 8888Y"   YbodP  
  
 */
-  private logueado = new BehaviorSubject <boolean> (this.Token.logueado());
+  private logueado = new BehaviorSubject <boolean> (this.Token.getLogueado());
   authStatus = this.logueado.asObservable();
 
   cambiaStatusAuth(value: boolean){
@@ -38,15 +38,15 @@ export class AuthService {
  
 */
 
-  private level = new BehaviorSubject <number> (this.Token.level());
+  private level = new BehaviorSubject <number> (this.Token.getLevel());
   authLevel = this.level.asObservable();
 
-cambiaLevelAuth(value = null){
+  cambiaLevelAuth(value = null){
 
- this.level.next(value ?? this.Token.level());
- // ps Si se usara el operador || en lugar de ??, los valores 0, "", y false no 
- // ps se considerarían valores, y devolverían el de la derecha. Ahora sólo los 
- // ps valores null y undefined harán que se devuelva el valor de la derecha.
+  this.level.next(value ?? this.Token.getLevel());
+  // ps Si se usara el operador || en lugar de ??, los valores 0, "", y false no 
+  // ps se considerarían valores, y devolverían el de la derecha. Ahora sólo los 
+  // ps valores null y undefined harán que se devuelva el valor de la derecha.
  
 }
 

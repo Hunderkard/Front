@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DatosService } from 'src/app/service/datos.service';
 
 @Component({
   selector: 'app-form-ingrediente',
@@ -12,7 +13,7 @@ export class FormIngredienteComponent {
   imgUrl:string = null;
   
 
-  constructor() {
+  constructor( private server:DatosService) {
     this.formulario = new FormGroup({
       nombre: new FormControl('', [   Validators.required]),
       precio: new FormControl('', [   Validators.required]),
@@ -29,9 +30,14 @@ export class FormIngredienteComponent {
 
    onSubmit(){
      console.log(this.formulario);
+     console.error(this.formulario.value.fecha_compra);
+     this.server.createIngrediente(this.formulario).subscribe(
+       data => console.log(data),
+       error => console.warn(error),
+     );
    }
 
-   
+   //Para la imagen.
    onChange(event){
     let reader = new FileReader();
  

@@ -3,7 +3,7 @@
     <ul class="navbar-nav">
         <li class="logo nav-item">
             <a routerLink="/" class="nav-link">
-                <span class="link-text">Menú {{level}}</span>
+                <span class="link-text">Menú</span>
 <!-- bi RUEDA -->
                 <svg 
                 xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
@@ -35,27 +35,39 @@
             </a>
         </li>
 
-
+<!-- bi FORMULARIOS -->
         <li *ngIf="level==0" class="nav-item">
-            <a routerLink="/" class="nav-link">
+
+            <a routerLink="/perfil" class="nav-link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
                     <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
                     <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
                     <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                  </svg>
+                </svg>
                 <span class="link-text">Formularios</span>
             </a>
+<!-- 
+            <div class="desplegable">
+                <ul>
+                    <li><a class="nav-link" routerLink="/admin/ingrediente/create"><span class="borde link-text">Ingrediente</span></a></li>
+                    <li><a class="nav-link" routerLink="/admin/plato/create"><span class="link-text">Platos Cocinados</span></a></li>
+                    <li><a class="nav-link" routerLink="/admin/proveedor/create"><span class="link-text">Action</span></a></li>
+                    <li><a class="nav-link" routerLink="/admin/usuario/create"><span class="link-text">Action</span></a></li>
+                </ul>
+            </div>
+ -->
         </li>
 
+<!-- bi TRÉBOL -->
         <li class="nav-item">
             <a routerLink="/" class="nav-link">
-                <svg 
-                xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-suit-club-fill" viewBox="0 0 16 16">
-                    <path d="M11.5 12.5a3.493 3.493 0 0 1-2.684-1.254 19.92 19.92 0 0 0 1.582 2.907c.231.35-.02.847-.438.847H6.04c-.419 0-.67-.497-.438-.847a19.919 19.919 0 0 0 1.582-2.907 3.5 3.5 0 1 1-2.538-5.743 3.5 3.5 0 1 1 6.708 0A3.5 3.5 0 1 1 11.5 12.5z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40   " fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                 </svg>
-                <span class="link-text">Tréboles</span>
+                <span class="link-text">Comprar</span>
             </a>
         </li>
+<!-- bi DIAMANTE -->
         <li class="nav-item">
             <a routerLink="/" class="nav-link">
                 <svg 
@@ -66,7 +78,8 @@
             </a>
         </li>
 <!-- bi EXIT -->
-        <li *ngIf="logueado" (click)="logout($event)" id="exit" class="nav-item ultimoHijo">
+        <li class="nav-item ultimoHijo"
+        *ngIf="logueado" (click)="logout($event)" id="exit">
             <a href="#" class="nav-link">
                 <svg 
                 xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">

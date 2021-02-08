@@ -7,11 +7,11 @@ import { AppComponent } from './component/init/app.component';
 
 // ti MIS COMPONENTES
 import { CabeceraComponent } from './component/layout/cabecera/cabecera.component';
+import { FooterComponent } from './component/layout/footer/footer.component';
+
 import { RegisterComponent } from './component/formularios/register/register.component';
 import { LoginComponent } from './component/formularios/login/login.component';
 import { PerfilComponent } from './component/perfil/perfil.component';
-import { FormPlatoComponent } from './component/formularios/form-plato/form-plato.component';
-import { FormProveedorComponent } from './component/formularios/form-proveedor/form-proveedor.component';
 import { RequestResetComponent } from './component/formularios/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './component/formularios/password/response-reset/response-reset.component';
 
@@ -19,10 +19,8 @@ import { ResponseResetComponent } from './component/formularios/password/respons
 /* Thu-17/12 20:21:42 Decido usar los fromularios Reactive para no cargar de lógica el HTML. */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormIngredienteComponent } from './component/formularios/form-ingrediente/form-ingrediente.component';
-
-// ti ÉSTOS SE HAN PUESTOS SOLOS, ME DA MIEDO BORRARLOS.
-import { environment } from '../environments/environment';
-
+import { FormProveedorComponent } from './component/formularios/form-proveedor/form-proveedor.component';
+import { FormPlatoComponent } from './component/formularios/form-plato/form-plato.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +34,7 @@ import { environment } from '../environments/environment';
     ResponseResetComponent,
     FormPlatoComponent,
     FormProveedorComponent,
+    FooterComponent,
     
   ],
   imports: [

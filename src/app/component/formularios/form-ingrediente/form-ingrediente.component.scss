@@ -8,3 +8,8 @@
 textarea{
   resize:none;
 }
+
+#elSubmit{
+  display: flex;
+  flex-direction: row-reverse;
+}

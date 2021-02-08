@@ -6,12 +6,12 @@ import { TokenService } from '../token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PrelogService implements CanActivate{
+export class AdminlogService {
 
   constructor(private token:TokenService) { }
-
+  
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return !this.token.getLogueado();
+    return  (this.token.getLevel() == 3);
   }
 }

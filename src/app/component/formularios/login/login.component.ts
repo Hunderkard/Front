@@ -51,8 +51,8 @@ export class LoginComponent {
   }
 
   manejoRespuesta(res){
-    console.log("Entró bien. Manejando respuesta.");
-    console.log(res);
+    // console.log("Entró bien. Manejando respuesta.");
+    // console.log(res);
     this.token.set(res.token);
     this.auth.cambiaStatusAuth(true);
     this.auth.cambiaLevelAuth();
@@ -60,8 +60,8 @@ export class LoginComponent {
   }
 
   manejoError(e){
-    console.log("Entró mal.");
-    console.log(e);
+    // console.log("Entró mal.");
+    // console.log(e);
     this.error = e.status;
   }
 

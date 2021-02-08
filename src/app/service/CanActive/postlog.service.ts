@@ -11,6 +11,6 @@ export class PostlogService implements CanActivate{
   constructor(private token:TokenService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.token.logueado();
+    return this.token.getLogueado();
   }
 }

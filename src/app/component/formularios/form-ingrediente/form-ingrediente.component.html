@@ -6,6 +6,14 @@
 <form action="#" [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <div class="row">
 
+<!-- ac BOTÓN SUBMIT -->
+<div id="elSubmit">
+    <button type="submit" class="btn btn-primary end"
+    [disabled]="formulario.invalid">
+        Subir
+    </button>
+</div>
+
 <!-- ac NOMBRE -->
         <div class="col-12">
             <label for="inNombre">Ingrediente:</label>
@@ -124,11 +132,6 @@
 <br>
 
 
-<!-- ac BOTÓN SUBMIT -->
-    <button type="submit" class="btn btn-primary"
-    [disabled]="formulario.invalid">
-        Probar
-    </button>
 
 </form>
 <!-- ps TERMINA FORMULARIO -->

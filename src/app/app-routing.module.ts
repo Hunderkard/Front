@@ -13,6 +13,8 @@ import { ResponseResetComponent } from './component/formularios/password/respons
 import { PrelogService } from './service/CanActive/prelog.service';
 import { PostlogService } from './service/CanActive/postlog.service';
 import { AdminlogService } from './service/CanActive/adminlog.service';
+import { FormPlatoComponent } from './component/formularios/form-plato/form-plato.component';
+import { FormProveedorComponent } from './component/formularios/form-proveedor/form-proveedor.component';
 
 // ha PARA SEPARAR LOS COMPOENTES PUBLICOS DE LOS PRIVADOS
 const routes: Routes = [
@@ -27,7 +29,9 @@ const routes: Routes = [
     { path:"perfil", component:PerfilComponent},
 
     { path:"admin", canActivate:[AdminlogService], children:[
-      { path:"ingrediente/create", component:FormIngredienteComponent}
+      { path:"ingrediente/create", component:FormIngredienteComponent},
+      { path:"plato/create", component:FormPlatoComponent},
+      { path:"proveedor/create", component:FormProveedorComponent},
     ]}
 
   ]}];

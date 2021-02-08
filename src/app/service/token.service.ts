@@ -23,7 +23,7 @@ export class TokenService {
   }
 
   // ps Devuelve el nivel guardado en el payload.
-  level(){
+  getLevel(){
     const token = this.get();
     // console.log("Accediendo al nivel");
     if(token) {
@@ -41,9 +41,9 @@ export class TokenService {
   }
 
   //ps Comprueba si el iss del payload proviene del login o del register.
-  logueado(){
+  getLogueado(){
     const token = this.get();
-    // console.log("Comprobando si está tiene el token.")
+    // console.log("Comprobando si está tiene el token.");
     if(token) {
       const payload = JSON.parse(   // ps Codificar a JSON.
                                   atob( // ps Desencriptar.

@@ -12,6 +12,6 @@ export class AdminlogService {
   
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return  (this.token.level() == 0);
+    return  (this.token.getLevel() == 0);
   }
 }

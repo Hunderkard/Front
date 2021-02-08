@@ -1,1 +1,72 @@
-<p>perfil works!</p>
+<div *ngIf="level == 0" class="formularios">
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- bi INGREDIENTES -->
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Ingredientes</div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a routerLink="/admin/ingrediente/create">Crear ingrediente</a></h5>
+                    <hr>
+                    <h5 class="card-title">Lista ingrediente</h5>
+                </div>
+            </div>
+        </div>
+
+    <!-- bi PLATOS -->
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Platos</div>
+                <div class="card-body">
+                    <h5 class="card-title">Crear platos</h5>
+                    <hr>
+                    <h5 class="card-title">Lista platos</h5>
+                </div>
+            </div>
+        </div>
+
+    <!-- bi PROVEEDORES -->
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Proveedores</div>
+                <div class="card-body">
+                    <h5 class="card-title">Crear proveedor</h5>
+                    <hr>
+                    <h5 class="card-title">Lista proveedor</h5>
+                </div>
+            </div>
+        </div>
+
+    <!-- bi USUARIOS -->
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-header">Usuarios</div>
+                <div class="card-body">
+                    <h5 class="card-title">Crear usuario</h5>
+                    <hr>
+                    <h5 class="card-title">Lista usuario</h5>
+                </div>
+            </div>
+        </div>
+
+      </div>
+</div>
+
+<div *ngIf="level == 1" class="saludo">
+Buenos días visitante.
+</div>
+
+
+<div *ngIf="level == 2" class="saludo">
+    Buenos días cliente.
+</div>
+
+    
+<div *ngIf="level == 3" class="saludo">
+    Buenos días cocinero.
+</div>
+
+<div *ngIf="level == 4" class="saludo">
+    Buenos días camarero.
+</div>

@@ -8,6 +8,20 @@
 }
 
 #cuerpo{
-    margin-left: 5rem;              //fu Con esto dejamos espacio para la barra de navegación.
+    
+/* Pantallas pequeñas */
+@media only screen and (max-width: 600px){
+    margin-left: 2rem;
+    margin-top: 6rem;
+}
+
+/* Pantallas grandes */
+@media only screen and (min-width: 600px){
+    margin-left: 6rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    
+}
+    
 }
 
